@@ -1,34 +1,21 @@
-import { fetchProducts, removeProduct, products } from './';
-import { makeServer } from '../miragejs/server';
+import { makeServer } from "../miragejs/server";
 
-describe('Store', () => {
+describe("Store", () => {
   let server;
 
   beforeEach(() => {
-    server = makeServer({ environment: 'test' });
+    server = makeServer({ environment: "test" });
   });
 
   afterEach(() => {
     server.shutdown();
   });
 
-  it('should load and return products', async () => {
-    server.createList('product', 10);
-
-    await fetchProducts();
-
-    expect(products.value).toHaveLength(10);
-  });
-
-  it('should remove second product', async () => {
-    const [_, secondProduct] = server.createList('product', 10);
-
-    await fetchProducts();
-    await removeProduct(secondProduct);
-
-    expect(products.value).toHaveLength(9);
-    expect(
-      products.value.find(({ id }) => id === secondProduct.id)
-    ).toBeUndefined();
-  });
+  it.todo("should return state.open equals false");
+  it.todo("should toggle state.open");
+  it.todo("should add products and open the cart");
+  it.todo("should NOT add same product twice");
+  it.todo("should remove products");
+  it.todo("should keep products if provided product is not found");
+  it.todo("should remove all products");
 });
