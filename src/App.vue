@@ -72,7 +72,10 @@
       </div>
     </header>
     <cart />
-    <products />
+    <Suspense>
+      <template #default><products /></template>
+      <template #fallback><spinner /></template>
+    </Suspense>
     <footer class="bg-gray-200">
       <div class="container mx-auto px-6 py-3 flex justify-between items-center">
         <a href="#" class="text-xl font-bold text-gray-500 hover:text-gray-400">Brand</a>
@@ -84,9 +87,10 @@
 
 <script>
 import Cart from './components/Cart';
+import Spinner from './components/Spinner';
 import Products from './pages/Products';
 export default {
   name: 'App',
-  components: { Cart, Products },
+  components: { Cart, Products, Spinner },
 };
 </script>

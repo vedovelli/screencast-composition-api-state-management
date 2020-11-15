@@ -7,7 +7,12 @@
         >200+ Products</span
       >
       <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
-        <product-card :product="{}" data-testid="product-card" />
+        <product-card
+          v-for="product in products"
+          :key="product.id"
+          :product="product"
+          data-testid="product-card"
+        />
       </div>
     </div>
   </main>
@@ -16,8 +21,14 @@
 <script>
 import ProductCard from '../components/ProductCard';
 import Search from '../components/Search';
+import axios from 'axios';
 export default {
   name: 'Products',
   components: { ProductCard, Search },
+  async setup() {
+    return {
+      products: (await axios.get('/api/products')).data.products,
+    };
+  },
 };
 </script>

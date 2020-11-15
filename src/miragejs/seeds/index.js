@@ -2,7 +2,7 @@
  * Mirage JS guide on Seeds: https://miragejs.com/docs/data-layer/factories#in-development
  */
 
-const usersSeeder = (server) => {
+const usersSeeder = server => {
   /*
    * This will create in the in memory DB 10 objects
    * of the Factory `user`. Moreover it creates a
@@ -12,8 +12,8 @@ const usersSeeder = (server) => {
   server.createList('user', 10);
 };
 
-const productsSeeder = (server) => {
-  server.createList('product', 25);
+const productsSeeder = server => {
+  server.createList('product', 24);
 };
 
 export default function seeds(server) {
