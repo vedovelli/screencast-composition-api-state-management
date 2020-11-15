@@ -1,4 +1,8 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
 
-createApp(App).mount('#app')
+if (process.env.NODE_ENV === 'development') {
+  require('./miragejs/server').makeServer();
+}
+
+createApp(App).mount('#app');
