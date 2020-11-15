@@ -27,7 +27,6 @@
             <button
               data-testid="toggle-button"
               class="text-gray-600 focus:outline-none mx-4 sm:mx-0"
-              @click="toggleCart"
             >
               <svg
                 class="h-5 w-5"
