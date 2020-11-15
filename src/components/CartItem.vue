@@ -38,3 +38,15 @@
     <span class="text-gray-600">$200</span>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'CartItem',
+  props: {
+    product: {
+      type: Object,
+      required: true,
+    },
+  },
+};
+</script>

@@ -26,3 +26,15 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'ProductCard',
+  props: {
+    product: {
+      type: Object,
+      required: true,
+    },
+  },
+};
+</script>
