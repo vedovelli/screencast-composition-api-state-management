@@ -7,4 +7,6 @@ const _state = ref(cloneDeep(initialState));
 
 const state = readonly(_state);
 
-export { state };
+const actions = {};
+
+export { state, actions };
