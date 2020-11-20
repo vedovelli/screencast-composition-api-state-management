@@ -5,6 +5,7 @@
       :style="`background-image: url(${product.image});`"
     >
       <button
+        @click="add(product)"
         class="p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500"
         data-testid="add-to-cart-button"
       >
@@ -31,6 +32,7 @@
 </template>
 
 <script>
+import { actions } from '@/store';
 export default {
   name: 'ProductCard',
   props: {
@@ -38,6 +40,11 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  setup() {
+    return {
+      add: actions.add,
+    };
   },
 };
 </script>

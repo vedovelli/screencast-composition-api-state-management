@@ -1,9 +1,10 @@
 <template>
   <div class="flex justify-between mt-6">
     <div class="flex">
-      <img class="h-20 w-20 object-cover rounded" src="" alt="" />
+      <img class="h-20 w-20 object-cover rounded" :src="product.image" :alt="product.title" />
       <div class="mx-3">
-        <h3 class="text-sm text-gray-600">Product name</h3>
+        <h3 class="text-sm text-gray-600">{{ product.title }}</h3>
+        <button @click="remove(product)">remove</button>
         <div class="flex items-center mt-2">
           <button data-testid="-" class="text-gray-500 focus:outline-none focus:text-gray-600">
             <svg
@@ -35,11 +36,12 @@
         </div>
       </div>
     </div>
-    <span class="text-gray-600">$200</span>
+    <span class="text-gray-600">${{ product.price }}</span>
   </div>
 </template>
 
 <script>
+import { actions } from '@/store';
 export default {
   name: 'CartItem',
   props: {
@@ -47,6 +49,11 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  setup() {
+    return {
+      remove: actions.remove,
+    };
   },
 };
 </script>

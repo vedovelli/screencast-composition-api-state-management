@@ -25,6 +25,7 @@
           </div>
           <div class="flex items-center justify-end w-full">
             <button
+              @click="toggle()"
               data-testid="toggle-button"
               class="text-gray-600 focus:outline-none mx-4 sm:mx-0"
             >
@@ -88,8 +89,14 @@
 import Cart from './components/Cart';
 import Spinner from './components/Spinner';
 import Products from './pages/Products';
+import { actions } from '@/store';
 export default {
   name: 'App',
   components: { Cart, Products, Spinner },
+  setup() {
+    return {
+      toggle: actions.toggle,
+    };
+  },
 };
 </script>
